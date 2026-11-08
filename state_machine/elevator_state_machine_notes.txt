@@ -1,0 +1,45 @@
+gui's need to be closely integrated with the state machines...
+
+states:
+
+floor x elevator call panel:
+- call to go up button pressed
+- call to go down button pressed
+- idle (wait for button press)
+
+door:
+- open (stopped)
+- closed (stopped)
+- opening
+- closing
+- emergency_stopped
+
+door alt:
+- closed_idle
+- open_for_cab
+- closing
+- opening
+- override_open
+- fault_stopped
+
+
+carriage / cab:
+- emergency_stopped
+- moving
+- stopped_at_floor
+- floor_number_button_pressed (action, not a state...)
+- door_open_button_pressed (action, not a state...)
+- door_close_button_pressed (action, not a state...)
+- emergency_button_pressed (action, not a state...)
+
+motor state:
+- brakes_released
+- brakes_engaged
+
+coordinator / planner:
+- idle
+- moving_up
+- moving_down
+- called_above
+- called_below
+- emergency

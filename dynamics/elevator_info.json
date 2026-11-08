@@ -1,0 +1,7 @@
+{
+	"m_cab_kg": 1500.0,
+	"m_payload_kg": 1000.0,
+	"v_max_m_s": 2.5,
+	"a_max_m_s2": 1.0,
+	"h_floor_m": 3.2
+}

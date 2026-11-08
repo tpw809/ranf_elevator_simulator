@@ -1,0 +1,12 @@
+<svg width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="metal">
+      <stop offset="0%" stop-color="#f0f0f0"/>
+      <stop offset="100%" stop-color="#888"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="128" cy="128" r="120" fill="#FF7034" stroke="#222" stroke-width="8"/>
+
+  <polygon points="128,50 200,170 56,170" fill="#222"/>
+</svg>

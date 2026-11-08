@@ -1,0 +1,47 @@
+https://www.svgviewer.dev/
+
+# SVG coordinate system starts at 0,0 at the top left corner
+# +x goes right
+# +y goes down
+
+# up button unpressed (white = #FFFFFF:
+<svg width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="metal">
+      <stop offset="0%" stop-color="#f0f0f0"/>
+      <stop offset="100%" stop-color="#888"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="128" cy="128" r="120" fill="#FFFFFF" stroke="#222" stroke-width="8"/>
+
+  <polygon points="128,50 200,170 56,170" fill="#222"/>
+</svg>
+
+
+# up button pressed (orange = #FF7034):
+<svg width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="metal">
+      <stop offset="0%" stop-color="#f0f0f0"/>
+      <stop offset="100%" stop-color="#888"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="128" cy="128" r="120" fill="#FF7034" stroke="#222" stroke-width="8"/>
+
+  <polygon points="128,50 200,170 56,170" fill="#222"/>
+</svg>
+
+
+# close door:
+<svg width="256" height="256" viewBox="0 0 256 256">
+
+  <circle cx="128" cy="128" r="120" fill="#FF7034" stroke="#222" stroke-width="8"/>
+
+  <polygon points="128+20,50 200+20,170 56+20,170" fill="#222"/>
+  
+  <polygon points="128+20,50 200+20,170 56+20,170" fill="#222"/>
+  
+  <line x1="0" y1="80" x2="100" y2="20" stroke="black" />
+</svg>

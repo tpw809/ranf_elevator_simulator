@@ -1,0 +1,16 @@
+nodes exchange data through 3 basic communication processes
+
+topics
+publisher sends messages on a topic
+subscribers listen to the topic
+
+
+services
+two way synchronous
+client sends requests to a service server, server responds
+
+
+actions
+asynchronous
+client sends a goal to an action server and get feedback while task runs, and result when task completes
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Elevator Button Demo</title>
+<style>
+  body {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    color: #ccc;
+    font-family: sans-serif;
+  }
+  canvas {
+    margin: 20px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<h2>Elevator Button Simulator</h2>
+<canvas id="upBtn" width="200" height="200"></canvas>
+<canvas id="downBtn" width="200" height="200"></canvas>
+
+<script>
+function drawButton(ctx, size, arrow, pressed) {
+  const x = size / 2, y = size / 2;
+
+  // metallic gradient
+  const gradient = ctx.createRadialGradient(x, y, size*0.1, x, y, size*0.5);
+  gradient.addColorStop(0, pressed ? "#aaa" : "#f0f0f0");
+  gradient.addColorStop(1, pressed ? "#555" : "#777");
+
+  ctx.fillStyle = gradient;
+  ctx.beginPath();
+  ctx.arc(x, y, size/2 - 5, 0, Math.PI*2);
+  ctx.fill();
+
+  // arrow
+  //ctx.fillStyle = "#111";
+  ctx.fillStyle = pressed ? "#ff7f00" : "#111";
+  ctx.beginPath();
+  if (arrow === "up") {
+    ctx.moveTo(x, y - size*0.25);
+    ctx.lineTo(x + size*0.25, y + size*0.15);
+    ctx.lineTo(x - size*0.25, y + size*0.15);
+  } else {
+    ctx.moveTo(x - size*0.25, y - size*0.15);
+    ctx.lineTo(x + size*0.25, y - size*0.15);
+    ctx.lineTo(x, y + size*0.25);
+  }
+  ctx.closePath();
+  ctx.fill();
+
+  // rim
+  ctx.strokeStyle = pressed ? "#333" : "#444";
+  ctx.lineWidth = 6;
+  ctx.stroke();
+}
+
+function setupButton(canvas, arrow) {
+  const ctx = canvas.getContext("2d");
+  let pressed = false;
+
+  function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawButton(ctx, canvas.width, arrow, pressed);
+  }
+
+  canvas.addEventListener("mousedown", () => {
+    pressed = true;
+    render();
+  });
+  canvas.addEventListener("mouseup", () => {
+    pressed = false;
+    render();
+  });
+
+  render();
+}
+
+setupButton(document.getElementById("upBtn"), "up");
+setupButton(document.getElementById("downBtn"), "down");
+</script>
+</body>
+</html>

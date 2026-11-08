@@ -1,0 +1,7 @@
+Primary gui path is shiny for python:
+https://shiny.posit.co/py/
+
+Bootstrp themes:
+https://bootswatch.com/
+https://bootswatch.com/cyborg/
+

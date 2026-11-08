@@ -1,0 +1,45 @@
+existing icon libraries:
+https://icons.getbootstrap.com/
+
+use a gui asset generator
+- kenney UI pack
+- game-icons.net
+- figma (requires sign-up)
+
+design custom buttons & export as png or svg:
+- inkscape
+- gimp
+- photopea
+- blender
+- tkinter designer
+- NXP GUI Guider (requires sign-up)
+- QT Designer
+- da button factory (text only)
+
+Types of buttons / icons needed (all w/ pressed & unpressed states):
+
+Call Panel:
+- up call button
+- down call button
+
+Internal Panel:
+- door open button
+- door close button
+- emergency / alarm button
+- floor number buttons
+- current floor number
+- direction moving
+
+Master Panel:
+- ???
+- door is closed
+- door is open
+- door is opening
+- door is closing
+- elevator is moving
+- elevator is stopped
+- height / floor / position
+- power off
+- power on
+- emergency stop
+

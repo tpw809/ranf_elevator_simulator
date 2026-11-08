@@ -1,0 +1,10 @@
+<svg width="256" height="256" viewBox="0 0 256 256">
+
+  <circle cx="128" cy="128" r="120" fill="#FFFFFF" stroke="#222" stroke-width="8"/>
+
+  <polygon points="110,70 110,186 30,128" fill="#222"/>
+  
+  <polygon points="146,70 146,186 226,128" fill="#222"/>
+  
+  <line x1="128" y1="20" x2="128" y2="236" stroke="black" stroke-width="8"/>
+</svg>

@@ -1,0 +1,149 @@
+Simplest dyanmic model:
+model evelator as a point mass along a single axis: z
+
+z_dot = sum(Fz) / m_elevator
+sum(Fz) = F_motor + F_resistance
+
+Controller (Trajectory Tracking):
+- PID Controller
+- Sliding Mode Controller (SMC)
+- Feed-forward w/ SMC error correction
+- Computed Effort Control Method (Computed Torque Method)
+
+F_computed = z_dot_des * m_elevator - F_resistance
+F_motor = F_computed
+
+
+Elevator Performance:
+assume mid-rise (5 to 12 floors)
+m_cab = 1500.0 kg
+payload = 1000.0 kg
+
+m_couterweight = m_cab + 0.4 * payload
+
+max speed = 2.5 m/s
+
+max accel = 1 m/s^2
+
+distance between floors = 3.2 m
+
+
+
+Options to transfer telemetry data:
+1. TCP socket, stream data over a socket
+-mimics ethernet / wifi
+-suports multiple channels
+
+2. serial port simulation
+- write serial packets with python and writes to serial
+- gui reads from same serial port
+
+3. MQTT broker (internet of things)
+- Simulation --> MQTT Broker --> Shiny GUI
+- mosquitto as broker
+
+4. Shared Queue
+- from gueue import Queue
+- .put(data)
+- .get_nowait()
+
+5. SQLite Time-series Buffer
+- for playback capability
+- trend plots
+
+
+
+Python Dynamics Model or real telemetry
+↓ 
+MQTT or TCP Socket = MQTT JSON Messages
+↓ 
+Telemetry Interface Layer = Mosquitto Broker
+↓ 
+Shiny GUI = Shiny Dashboard
+
+
+telemetry packets as json? = yes
+
+initial choice = JSON over MQTT / Mosquitto
+
+example telemetry data packet:
+{
+  "timestamp": 123.45,
+  "speed": 12.4,
+  "wheel_torque": 95.1,
+  "motor_temp": 44.7,
+  "battery_soc": 87.6
+}
+
+example command packet:
+{
+  "command": "set_speed",
+  "value": 2.5
+}
+
+
+For a control GUI, want bi-directional communication:
+- telemetry and commanding
+
+
+pip install paho-mqtt
+
+
+
+run three separate processes:
+
+Terminal 1
+-----------
+Mosquitto Broker (mosquitto -v)
+
+Terminal 2
+-----------
+Simulation (python simulator.py)
+(Publisher)
+
+Terminal 3
+-----------
+Shiny App (shiny run app.py)
+(Subscriber)
+
+Optional:
+Terminal 4
+-----------
+Telemetry Monitor (mosquitto_sub -h localhost -t "#" -v)
+
+
+Launch everything from a single run script:
+
+import subprocess
+
+subprocess.Popen(["python", "simulator.py"])
+subprocess.Popen(["shiny", "run", "app.py"])
+
+
+Project Structure:
+
+project/
+│
+├── simulator.py
+├── app.py
+├── mqtt_topics.py
+├── models/
+│   ├── vehicle.py
+│   ├── motor.py
+│   └── battery.py
+│
+└── telemetry/
+    ├── publisher.py
+    └── subscriber.py
+
+
+
+Radio possible (for future implementations):
+wifi
+cellular
+LoRa
+Amateur UHF/VHF
+
+
+Database:
+

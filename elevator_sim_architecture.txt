@@ -1,0 +1,72 @@
+Sim Infrastructure Components:
+
+What to use for underlying communication layer?
+
+For a real spacecraft, all telemetry and commanding has to take place over radio communication packets...
+
+ROS2 -> underlying communications layer
+julia -> solve dynamic equations, turn crank (spin) to find next state via dynamic equations and ODE solver
+python -> wrapper / link from ROS2 to julia
+??? -> web dashboard / viewer
+??? -> user control interface gui
+mujoco mojo -> dynamics solver alternate (to julia)
+python -> motion plan generator (trapezoid motion plan)
+javascript / html -> control panel
+
+
+foxglove: web-based visualization
+vizanti: web visualizer
+miti: 3d visualizer
+RViz2: ROS2 native visualizer
+
+
+
+ROS nodes:
+- control node
+- floor call node (floor call state machine)
+- cab interface node (cab state machine)
+- cab dynamics node
+- motion plan node
+- manager node (system state machine)
+- floor door node (door state machine)
+
+
+Web based gui: 
+- tailwind CSS
+- Radix
+
+
+python gui:
+- kivy
+- tkinter (not easy to make lcars style...)
+- pylcars (PyQt5)
+- Pygame
+- shiny (web app builder for R and python)
+
+
+Star Trek LCARS style colors and layouts...
+Library Computer Access and Retrieval System (LCARS)
+
+LCARS fonts:
+*Antonio (open source)
+Helvetica Ultra Compressed (not open source)
+Letraset Compacta (not open source)
+Swiss 911 Ultra Compressed (not open source)
+
+LCARS colors:
+Orange/Amber: #FF9900
+Light Blue: #99CCFF
+Purple/Lavender: #CC99CC
+Red Alert: #FF3333
+
+https://github.com/leonawicz/trekcolors
+
+
+Easily Readble Font: Lexend
+notepad++ default font: courier new
+
+Helvetica Font
+
+
+Time series database:
+- influxdb

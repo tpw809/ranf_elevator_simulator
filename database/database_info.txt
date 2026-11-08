@@ -1,0 +1,10 @@
+Requirements:
+- time-series database
+- open source and free
+
+
+Options:
+- InfluxDB 3 Core https://www.influxdata.com/products/influxdb/
+- TimescaleDB
+- QuestDB https://questdb.com/docs/getting-started/quick-start/
+
